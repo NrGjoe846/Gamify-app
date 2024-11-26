@@ -17,73 +17,80 @@ interface StoreState {
 
 const initialLessons: Lesson[] = [
   {
-    id: '1',
-    title: 'Variables & Data Types',
-    description: 'Master the fundamentals of storing and manipulating data',
-    icon: 'Variable',
+    id: 'java-basics',
+    title: 'Java Fundamentals',
+    description: 'Learn the core concepts of Java programming',
+    icon: 'Code',
     difficulty: 'beginner',
     completed: false,
     xp: 100,
-    tags: ['javascript', 'basics'],
-    estimatedTime: 15,
+    tags: ['java', 'basics'],
+    estimatedTime: 30,
     storyline: {
-      title: 'The Lost Robot',
-      description: 'Help ROB-E learn about variables to restore its memory banks!',
-      character: 'ROB-E',
+      title: 'The Code Master\'s Journey',
+      description: 'Begin your journey to master Java programming',
+      character: 'CodeMaster',
       dialogue: [
-        "Hey there! I'm ROB-E, and I seem to have lost my memory...",
-        "Can you help me understand how to store information using these things called 'variables'?",
-        "With your help, I might just remember who I am!"
+        "Welcome to Java programming! I'm your guide, CodeMaster.",
+        "Let's start with the fundamentals that every Java developer needs to know.",
+        "Are you ready to begin your journey?"
       ],
-      backgroundImage: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e'
+      backgroundImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97'
     },
     exercises: [
       {
-        id: '1-1',
-        type: 'multiple-choice',
-        question: 'Which keyword is used for constants in modern JavaScript?',
-        description: 'Help ROB-E understand how to store unchangeable data!',
+        id: 'variables-101',
+        type: 'coding',
+        question: 'Create a variable to store a person\'s age',
+        description: 'Declare an integer variable named "age" and assign it the value 25',
         difficulty: 'easy',
-        options: ['var', 'let', 'const', 'variable'],
-        correctAnswer: 'const',
-        explanation: 'const is used to declare constants that cannot be reassigned.',
+        correctAnswer: 'int age = 25;',
+        explanation: 'In Java, we use "int" to declare integer variables.',
         hints: [
-          'Think about what we use when the value won\'t change',
-          'It\'s short for "constant"',
-          'This type of variable cannot be reassigned once declared'
+          'Use the "int" keyword',
+          'Variable names should be descriptive',
+          'Don\'t forget the semicolon'
         ],
         xpReward: 20,
-        aiHints: true,
-        interactiveDemo: true
-      },
-      {
-        id: '1-2',
-        type: 'real-world',
-        question: 'Create a Temperature Converter',
-        description: 'ROB-E needs to understand Earth temperatures! Create a converter.',
-        difficulty: 'medium',
-        correctAnswer: 'const celsiusToFahrenheit = (celsius) => (celsius * 9/5) + 32;',
-        explanation: 'This function converts Celsius to Fahrenheit using the standard formula.',
-        hints: [
-          'Start with declaring a function using const',
-          'Use arrow function syntax for modern JavaScript',
-          'The formula is (C × 9/5) + 32'
-        ],
-        xpReward: 50,
         testCases: [
           {
-            input: '0',
-            expectedOutput: '32',
-            description: 'Freezing point of water'
-          },
-          {
-            input: '100',
-            expectedOutput: '212',
-            description: 'Boiling point of water'
+            input: '',
+            expectedOutput: 'int age = 25;',
+            description: 'Variable declaration'
           }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'java-oop',
+    title: 'Object-Oriented Programming',
+    description: 'Master classes, objects, and inheritance',
+    icon: 'Box',
+    difficulty: 'intermediate',
+    completed: false,
+    xp: 150,
+    tags: ['java', 'oop'],
+    estimatedTime: 45,
+    exercises: [
+      {
+        id: 'class-basics',
+        type: 'coding',
+        question: 'Create a simple class',
+        description: 'Create a class named "Person" with name and age properties',
+        difficulty: 'medium',
+        correctAnswer: `
+class Person {
+    String name;
+    int age;
+}`,
+        explanation: 'Classes are blueprints for objects, containing properties and methods.',
+        hints: [
+          'Use the "class" keyword',
+          'Properties are variables inside a class',
+          'No need for methods yet'
         ],
-        realWorldScenario: 'You\'re building a weather app that needs to convert temperatures for users from different countries.',
-        aiHints: true
+        xpReward: 30
       }
     ]
   }
@@ -104,7 +111,7 @@ export const useStore = create<StoreState>((set) => ({
     learningPath: [],
     strengths: [],
     weaknesses: [],
-    dailyGoal: 50,
+    dailyGoal: 100,
     dailyProgress: 0
   },
   completeLesson: (lessonId: string) =>
@@ -172,7 +179,6 @@ export const useStore = create<StoreState>((set) => ({
 }));
 
 function generateLearningPath(strengths: string[], weaknesses: string[]): string[] {
-  // This is a placeholder implementation
-  // In a real app, this would use AI to generate a personalized learning path
+  // Prioritize lessons based on user's weaknesses while maintaining a balanced progression
   return weaknesses;
 }

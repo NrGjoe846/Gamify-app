@@ -103,4 +103,4 @@ export const useLessonStore = create<LessonStore>((set) => ({
         achievements: [...state.userProgress.achievements, achievementId]
       }
     }))
-}));
+}));S
