@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --primary: 263.4 70% 50.4%;
+    --secondary: 240 3.7% 15.9%;
+  }
+
+  body {
+    @apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))] min-h-screen;
+    background: linear-gradient(to bottom, #13111C, #08070B);
+  }
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.bg-gradient-animate {
+  background: linear-gradient(45deg, #7928CA, #FF0080, #4F46E5);
+  background-size: 200% 200%;
+  animation: gradientFlow 15s ease infinite;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(167, 139, 250, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+}
+
+.progress-bar {
+  @apply h-2 rounded-full overflow-hidden bg-gray-700;
+}
+
+.progress-value {
+  @apply h-full bg-gradient-animate;
+  transition: width 0.3s ease;
+}
