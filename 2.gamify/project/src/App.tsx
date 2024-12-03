@@ -2,9 +2,7 @@ import { CourseCatalog } from './components/CourseCatalog';
 import React, { Suspense, lazy, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// Lazy load components
-const WelcomeScreen = lazy(() => import(/* webpackChunkName: "WelcomeScreen" */ './components/onboarding/WelcomeScreen'));
-const SignUpScreen = lazy(() => import(/* webpackChunkName: "SignUpScreen" */ './components/onboarding/SignUpScreen'));
+@@ -7,25 +8,23 @@ const SignUpScreen = lazy(() => import(/* webpackChunkName: "SignUpScreen" */ '.
 const ProfileSetup = lazy(() => import(/* webpackChunkName: "ProfileSetup" */ './components/onboarding/ProfileSetup'));
 const LearningStyleQuiz = lazy(() => import(/* webpackChunkName: "LearningStyleQuiz" */ './components/onboarding/LearningStyleQuiz'));
 const CourseCatalog = lazy(() => import(/* webpackChunkName: "CourseCatalog" */ './components/CourseCatalog'));
@@ -28,14 +26,3 @@ export default function App() {
   return (
     <Router>
       <Suspense fallback={<LoadingScreen />}>
-        <Routes>
-          <Route path="/" element={<WelcomeScreen />} />
-          <Route path="/signup" element={<SignUpScreen />} />
-          <Route path="/profile-setup" element={<ProfileSetup />} />
-          <Route path="/learning-style" element={<LearningStyleQuiz />} />
-          <Route path="/courses" element={<CourseCatalog />} />
-        </Routes>
-      </Suspense>
-    </Router>
-  );
-}
